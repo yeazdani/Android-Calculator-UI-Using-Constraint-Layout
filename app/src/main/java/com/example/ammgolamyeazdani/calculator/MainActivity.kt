@@ -1,6 +1,7 @@
 package com.example.ammgolamyeazdani.calculator;
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
@@ -13,7 +14,7 @@ import kotlin.collections.ArrayList as Lis
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var binding: ActivityMainBinding
-
+    var result: Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 one, two, three, four, five, six, seven, eight, nine, dot, div,
                 multi, sub, plus, clear, equals
             )
-            for (index in 0 until buttonList .size) {
+            for (index in 0 until buttonList.size) {
                 buttonList[index].setOnClickListener(this@MainActivity)
 
             }
@@ -41,120 +42,120 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 if (binding.display.text != "") {
                     binding.display.append("1")
                 } else {
-                    binding.display.setText("1")
+                    binding.display.text = "1"
                 }
             }
             R.id.two -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("2")
                 } else {
-                    binding.display.setText("2")
+                    binding.display.text = "2"
                 }
             }
             R.id.three -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("3")
                 } else {
-                    binding.display.setText("3")
+                    binding.display.text = "3"
                 }
             }
             R.id.four -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("4")
                 } else {
-                    binding.display.setText("4")
+                    binding.display.text = "4"
                 }
             }
             R.id.five -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("5")
                 } else {
-                    binding.display.setText("5")
+                    binding.display.text = "5"
                 }
             }
             R.id.six -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("6")
                 } else {
-                    binding.display.setText("6")
+                    binding.display.text = "6"
                 }
             }
             R.id.seven -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("7")
                 } else {
-                    binding.display.setText("7")
+                    binding.display.text = "7"
                 }
             }
             R.id.eight -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("8")
                 } else {
-                    binding.display.setText("8")
+                    binding.display.text = "8"
                 }
             }
             R.id.nine -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("9")
                 } else {
-                    binding.display.setText("9")
+                    binding.display.text = "9"
                 }
             }
             R.id.zero -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("0")
                 } else {
-                    binding.display.setText("0")
+                    binding.display.text = "0"
                 }
             }
             R.id.plus -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("+")
                 } else {
-                    binding.display.setText("+")
+                    binding.display.text = "+"
                 }
             }
             R.id.div -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("%")
                 } else {
-                    binding.display.setText("%")
+                    binding.display.text = "%"
                 }
             }
             R.id.multi -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("x")
                 } else {
-                    binding.display.setText("x")
+                    binding.display.text = "x"
                 }
             }
             R.id.sub -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append("-")
                 } else {
-                    binding.display.setText("-")
+                    binding.display.text = "-"
                 }
             }
             R.id.clear -> {
-                binding.display.setText(null)
+                binding.display.text = null
             }
             R.id.equals -> {
-                if (binding.display.getText() != "") {
-                    calculate(binding.display.getText().toString())
+                if (binding.display.text != "") {
+                    calculate(binding.display.text.toString())
                 } else {
                     Toast.makeText(this, "Nothing to Calculate", Toast.LENGTH_SHORT).show()
                 }
             }
             R.id.dot -> {
-                if (binding.display.getText() != "") {
+                if (binding.display.text != "") {
                     binding.display.append(".")
                 } else {
-                    binding.display.setText(".")
+                    binding.display.text = "."
                 }
             }
             R.id.backDelete -> {
-                if (binding.display.getText() != "") {
-                    val s: String = binding.display.getText().toString()
+                if (binding.display.text != "") {
+                    val s: String = binding.display.text.toString()
                     if (s.length > 0) {
                         binding.display.setText(s.substring(0, s.length - 1))
                     } else {
